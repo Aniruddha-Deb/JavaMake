@@ -15,7 +15,7 @@ SRCCLASSES := $(patsubst $(SRCDIR)/%,$(BINDIR)/%,$(SOURCES:%.java=%.class))
 TESTEXECS := $(subst /,.,$(patsubst $(SRCDIR)/%,%,$(TESTS:%.java=%)))
 
 $(BINDIR)/%.class: $(SRCDIR)/%.java
-	@$(JC) -cp $(SRCDIR) $(JCARGS) -d $(BINDIR) $^
+	$(JC) -cp $(SRCDIR) $(JCARGS) -d $(BINDIR) $^
 
 $(TESTPATH).%: $(BINDIR)/$(TESTDIR)/%.class
 	@echo ----------------------
